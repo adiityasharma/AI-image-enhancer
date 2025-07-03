@@ -1,47 +1,84 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function ImagePreview(props) {
+  const imageUrl = props.enhanced;
+
+  const [allImage, setAllImage] = useState([
+    "https://addsg",
+    "asdgf",
+    "aksghksahgk",
+  ]);
+
+  useEffect(() => {
+    setAllImage((prev) => [imageUrl, ...allImage]);
+  }, [imageUrl]);
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-6 w-full md:w-170 mb-5">
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <h1 className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-center py-2 font-semibold">
-          Original Image
-        </h1>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-6 w-full md:w-170 mb-5">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <h1 className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-center py-2 font-semibold">
+            Original Image
+          </h1>
 
-        <div className="h-auto">
-          {props.upload ? (
-            <img className="object-fill " src={props.upload} alt="" />
-          ) : (
-            <p className="py-3 text-gray-500">No image uploaded</p>
-          )}
+          <div className="h-auto">
+            {props.upload ? (
+              <img className="object-fill " src={props.upload} alt="" />
+            ) : (
+              <p className="py-3 text-gray-500">No image uploaded</p>
+            )}
+          </div>
         </div>
-      </div>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <h1 className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-center py-2 font-semibold">
-          Enhanced Image
-        </h1>
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <h1 className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-center py-2 font-semibold">
+            Enhanced Image
+          </h1>
 
-        <div className="h-auto flex justify-center items-center">
-          {props.loading ? (
-            <div class="flex flex-row gap-2 py-10">
-              <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce"></div>
-              <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.3s]"></div>
-              <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.5s]"></div>
-            </div>
-          ) : (
-            <div className="h-auto">
-              {props.upload ? (
-                <img className="object-fill " src={props.enhanced} alt="" />
-              ) : (
-                <p className="py-3 text-gray-500">
-                  Enhanced Image will appear here
+          <div className="h-auto">
+            {props.loading ? (
+              <div className="flex flex-col gap-2 py-10 justify-center items-center">
+                <div className="flex flex-row gap-2 pt-5 justify-center items-center">
+                  <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce"></div>
+                  <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.3s]"></div>
+                  <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.5s]"></div>
+                  <br />
+                </div>
+                <p className="font-semibold bg-gradient-to-r from-purple-500 to-purple-900 bg-clip-text text-transparent">
+                  Enhancing...
                 </p>
-              )}
-            </div>
-          )}
+              </div>
+            ) : (
+              <div className="h-auto">
+                {props.upload ? (
+                  <img className="object-fill " src={props.enhanced} alt="" />
+                ) : (
+                  <p className="py-3 text-gray-500">
+                    Enhanced Image will appear here
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      {allImage ? (
+        <div className="">
+          <h1 className="font-bold text-lg">Recently Generated Images:</h1>
+          {allImage.map((img, index) => (
+            <a
+              className="block text-blue-700"
+              key={index}
+              href={img}
+              target="_blank"
+            >
+              {img}
+            </a>
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
 
