@@ -3,14 +3,14 @@ import Home from './components/Home'
 
 function App() {
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8 px-4'>
-      <div className='text-center mb-8'>
-        <h1></h1>
-        <p></p>
+    <div className='w-full flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8 px-4'>
+      <div className='text-center mb-5'>
+        <h1 className='text-5xl font-bold pb-4 bg-gradient-to-r from-purple-500 to-purple-900 bg-clip-text text-transparent' >AI Image Enhancer</h1>
+        <p className='bg-gradient-to-r from-slate-500 to-slate-800 bg-clip-text text-transparent text-2xl font-semibold'>Upload your image and AI will give you enhance version of Image</p>
       </div>
         <Home/>
       <div className='text-lg text-gray-500'>
-        <h1>Upload your image and AI will give you enhance version of Image</h1>
+        <h1>Powered By @Aditya</h1>
 
       </div>
     </div>

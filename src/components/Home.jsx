@@ -4,7 +4,7 @@ import ImagePreview from './ImagePreview'
 
 function Home() {
   return (
-    <div >
+    <div className='w-200 text-center flex flex-col items-center'>
       <ImageUpload/>
       <ImagePreview/>
     </div>
