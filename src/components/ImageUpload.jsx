@@ -14,7 +14,6 @@ function ImageUpload(props) {
     if(droppedFile){
       props.uploadImageHandler(droppedFile)
     }
-    console.log(file)
   }
 
   const handleDragOver = (e)=>{
