@@ -2,6 +2,8 @@ import React from "react";
 import Home from "./components/Home";
 
 function App() {
+
+
   return (
     <div className="w-full flex flex-col items-center justify-center min-h-screen md:bg-gray-100 md:py-8 md:px-4 py-2 ">
       <div className="text-center md:mb-3">
