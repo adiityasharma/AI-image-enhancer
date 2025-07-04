@@ -5,7 +5,7 @@ function App() {
 
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen md:bg-gray-100 md:py-8 md:px-4 py-2 ">
+    <div className="relative w-full flex flex-col items-center justify-center min-h-screen md:bg-gray-100 md:py-8 md:px-4 py-2 md:mb-0 lg:py-8 pb-10">
       <div className="text-center md:mb-3">
         <h1 className="text-5xl font-bold pb-4 bg-gradient-to-r from-purple-500 to-purple-900 bg-clip-text text-transparent">
           AI Image Enhancer
@@ -29,8 +29,8 @@ function App() {
         </ul>
       </div>
       <Home />
-      <div className="text-lg text-gray-500">
-        <h1>Powered By @Aditya</h1>
+      <div className="text-lg text-gray-400 absolute lg:bottom-2 lg:right-5 md:bottom-2 md:right-5 bottom-2 right-3">
+        <a className="hover:text-blue-500" target="_blank" href="https://github.com/adiityasharma/AI-image-enhancer">Github: Aditya Sharma</a>
       </div>
     </div>
   );
